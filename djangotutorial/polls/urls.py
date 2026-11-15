@@ -1,8 +1,18 @@
 from django.urls import path
-# do aplicativo atual(polls) importe o arquivo views
+
 from . import views
 
+'''
+# the 'name' value as called by the {% url %} template tag
+path("<int:question_id>/", views.detail, name="detail"),
+
+# added the word 'specifics'
+path("specifics/<int:question_id>/", views.detail, name="detail"),
+'''
+app_name = "polls"
 urlpatterns = [
-    # do arquivo views chama a função index
-    path('', views.index, name='index')
+    path("", views.index, name="index"),
+    path("<int:question_id>/", views.detail, name="detail"),
+    path("<int:question_id>/results/", views.results, name="results"),
+    path("<int:question_id>/vote/", views.vote, name="vote"),
 ]

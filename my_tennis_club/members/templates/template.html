@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visualização de teste</title>
+  </head>
+  <body>
+    <!-- 
+    Criar variáveis no modelo
+    Você também pode criar variáveis diretamente no 
+    modelo, usando a tag template. {% with %}
+
+    A variável está disponível até que a tag {% endwith %} apareça:
+    -->
+    {% with firstname="Tobias" %}
+    <!-- 
+    Variáveis do Modelo
+    Nos templates Django, pode-se renderizar variáveis 
+    colocando-as dentro de chaves duplas: {{ variável }}
+    -->
+    <!-- exibe o nome Tobias atribuido à va -->
+    {% if greeting == 1 %}
+    <h1>Olá, {{ firstname }} como está você?</h1>
+    {% else %}
+    <h1>Bye, {{ firstname }}</h1>
+    {% endif %}
+
+    <!--
+    VISUALIZA os valores da lista fruits no dicionário context 
+    dentro da função texting no arquivo views.py
+
+    {% for x in fruits %}
+    <h1>{{ x }}</h1>
+    {% endfor %}
+    -->
+
+    <ul>
+      {% for x in mymembers %}
+      <li>{{ x.firstname }}</li>
+      {% endfor %}
+    </ul>
+
+    <p>
+      No arquivo views.py você pode ver como importar e buscar membros do banco
+      de dados.
+    </p>
+  </body>
+</html>
